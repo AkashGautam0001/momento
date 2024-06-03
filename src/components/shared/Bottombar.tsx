@@ -21,8 +21,8 @@ const Bottombar = () => {
 							className={` ${isActive && "invert"}`}
 						/>
 						<p
-							className={`tiny-medium text-light-2 ${
-								isActive && "text-black"
+							className={`tiny-medium ${
+								isActive && `text-black`
 							}`}
 						>
 							{link.label}

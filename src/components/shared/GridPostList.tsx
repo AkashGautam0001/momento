@@ -20,7 +20,7 @@ const GridPostList = ({
 			{posts.map((post) => (
 				<li
 					key={post.$id}
-					className="relative min-w-80 h-80"
+					className="relative min-w-72 h-80"
 				>
 					<Link
 						to={`/posts/${post.$id}`}
@@ -29,7 +29,7 @@ const GridPostList = ({
 						<img
 							src={post?.imageUrl}
 							alt="post"
-							className="h-full w-full object-cover"
+							className="h-full w-full object-contain"
 						/>
 					</Link>
 
