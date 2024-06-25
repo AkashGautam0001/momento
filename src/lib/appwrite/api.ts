@@ -199,7 +199,7 @@ export async function getRecentPosts() {
 			[Query.orderDesc("$createdAt"), Query.limit(20)]
 		);
 
-		if (!post) return Error;
+		if (!post) throw Error;
 
 		return post;
 	} catch (error) {
@@ -351,6 +351,24 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
 		queries.push(Query.cursorAfter(pageParam.toString()));
 	}
 
+	try {
+		const posts = await databases.listDocuments(
+			appwriteCofig.databaseId,
+			appwriteCofig.postCollectionId,
+			queries
+		);
+
+		if (!posts) throw Error;
+
+		return posts;
+	} catch (error) {
+		console.log("Error :: getInfinitePosts", error);
+	}
+}
+
+// ! this is edited
+export async function getPosts() {
+	const queries: any[] = [Query.orderDesc("$updatedAt"), Query.limit(20)];
 	try {
 		const posts = await databases.listDocuments(
 			appwriteCofig.databaseId,

@@ -19,13 +19,13 @@ export function formatTimeAgo(timestamp: string | undefined) {
 
 	if (timeDifference < minute) {
 		const seconds = Math.floor(timeDifference / 1000);
-		return `${seconds} ${seconds === 1 ? "second" : "seconds"} ago`;
+		return `${seconds} ${seconds === 1 ? "sec" : "sec"} ago`;
 	} else if (timeDifference < hour) {
 		const minutes = Math.floor(timeDifference / minute);
-		return `${minutes} ${minutes === 1 ? "minute" : "minutes"} ago`;
+		return `${minutes} ${minutes === 1 ? "min" : "min"} ago`;
 	} else if (timeDifference < day) {
 		const hours = Math.floor(timeDifference / hour);
-		return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
+		return `${hours} ${hours === 1 ? "min" : "min"} ago`;
 	} else if (timeDifference < month) {
 		const days = Math.floor(timeDifference / day);
 		return `${days} ${days === 1 ? "day" : "days"} ago`;
