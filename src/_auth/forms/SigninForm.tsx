@@ -43,7 +43,7 @@ const SigninForm = () => {
 
 		if (!session) {
 			return toast({
-				variant: "default",
+				variant: "destructive",
 				title: "Something went wrong.Please login you new Account",
 			});
 		}
