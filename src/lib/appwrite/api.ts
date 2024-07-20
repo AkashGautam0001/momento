@@ -399,3 +399,18 @@ export async function searchPosts(searchTerm: string) {
 		console.log("Error :: getInfinitePosts", error);
 	}
 }
+
+export async function getUsers() {
+	try {
+		const users = await databases.listDocuments(
+			appwriteCofig.databaseId,
+			appwriteCofig.userCollectionId,
+			[Query.orderDesc("$createdAt")]
+		);
+
+		if (!users) throw Error;
+		return users;
+	} catch (error) {
+		console.log(error);
+	}
+}

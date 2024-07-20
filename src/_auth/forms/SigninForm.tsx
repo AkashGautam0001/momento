@@ -54,10 +54,11 @@ const SigninForm = () => {
 			form.reset();
 			navigate("/");
 		} else {
-			return toast({
+			toast({
 				variant: "default",
 				title: "Sign in failed, please try again",
 			});
+			return;
 		}
 	}
 
